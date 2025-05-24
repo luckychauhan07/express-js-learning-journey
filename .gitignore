@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 .DS_Store
 
+=======
+>>>>>>> 26d9c83ebd034fec0967da5ad514bbc74d7c156d
 # Logs
 logs
 *.log
@@ -106,6 +109,15 @@ dist
 .temp
 .cache
 
+<<<<<<< HEAD
+=======
+# vitepress build output
+**/.vitepress/dist
+
+# vitepress cache directory
+**/.vitepress/cache
+
+>>>>>>> 26d9c83ebd034fec0967da5ad514bbc74d7c156d
 # Docusaurus cache and generated files
 .docusaurus
 

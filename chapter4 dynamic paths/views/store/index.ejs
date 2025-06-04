@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="output.css" />
+        <title>Welcome Airbnb</title>
+    </head>
+    <body class="bg-gray-50 text-gray-800">
+        <!-- Header -->
+        <header class="bg-white shadow-md">
+            <div
+                class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center"
+            >
+                <h1 class="text-xl font-bold text-red-600">Airbnb</h1>
+                <nav class="space-x-4">
+                    <a
+                        href="/host/host-home-list"
+                        class="text-gray-600 hover:text-red-500"
+                        >Host homeList</a
+                    >
+                    <a href="home-list" class="text-gray-600 hover:text-red-500"
+                        >HomeList</a
+                    >
+                    <a
+                        href="/host/contactUs"
+                        class="text-gray-600 hover:text-red-500"
+                        >Register</a
+                    >
+                    <a
+                        href="/host/edit-home"
+                        class="text-gray-600 hover:text-red-500"
+                        >Edit home</a
+                    >
+                    <a href="/bookings" class="text-gray-600 hover:text-red-500"
+                        >Bookings</a
+                    >
+                    <a
+                        href="/favourite"
+                        class="text-gray-600 hover:text-red-500"
+                        >Favourites</a
+                    >
+                    <a href="/reserve" class="text-gray-600 hover:text-red-500"
+                        >Reserve</a
+                    >
+                </nav>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="max-w-4xl mx-auto px-4 py-8">
+            <h2 class="text-3xl font-semibold text-gray-800 mb-4">
+                Welcome to the Airbnb home page
+            </h2>
+
+            <a href="/host/contactUs" class="text-blue-600 hover:underline">
+                Go to register page
+            </a>
+
+            <div class="mt-8">
+                <h3 class="text-2xl font-medium mb-2">
+                    Your registered homes are:
+                </h3>
+                <ul
+                    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-6"
+                >
+                    <% registerHomes.forEach(home => { %>
+                    <li class="bg-white rounded-xl shadow-md p-6 flex flex-col">
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">
+                            <%= home.houseName %>
+                        </h3>
+
+                        <p class="text-gray-600 mb-1">
+                            <strong>Charge per night:</strong> $<%= home.price
+                            %>
+                        </p>
+                        <p class="text-gray-600 mb-1">
+                            <strong>Location:</strong> <%= home.location %>
+                        </p>
+                        <p class="text-gray-600 mb-3">
+                            <strong>Rating:</strong> <%= home.rating %> ⭐
+                        </p>
+
+                        <% if (home.photoUrl) { %>
+                        <img
+                            src="<%= home.photoUrl %>"
+                            alt="<%= home.houseName %>"
+                            class="rounded-lg object-cover h-40 w-full"
+                        />
+                        <% } %>
+                        <button
+                            class="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-2 rounded-lg shadow-md transition duration-300"
+                        >
+                            Book
+                        </button>
+                    </li>
+
+                    <% }) %>
+                </ul>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-gray-100 mt-12">
+            <div
+                class="max-w-6xl mx-auto px-4 py-6 text-center text-gray-500 text-sm"
+            >
+                © <%= new Date().getFullYear() %> Airbnb Clone. All rights
+                reserved.
+            </div>
+        </footer>
+    </body>
+</html>

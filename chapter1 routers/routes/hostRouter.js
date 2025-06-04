@@ -9,10 +9,10 @@ const path = require("path");
 
 const hostRouter = express.Router();
 hostRouter.get("/contactUs", (req, res, next) => {
-    res.sendFile(path.join(rootpath, "views", "homeRegister.html"));
+    res.sendFile(path.join(rootpath, "views", "host", "homeRegister.html"));
 });
 hostRouter.post("/contactUs", (req, res, next) => {
     console.log(req.body);
-    res.sendFile(path.join(rootpath, "views", "success.html"));
+    res.sendFile(path.join(rootpath, "views", "host", "success.html"));
 });
 module.exports = hostRouter;

@@ -12,6 +12,6 @@ const userRouter = express.Router();
 userRouter.get("/", (req, res, next) => {
     console.log(req.method, req.url, registerHomes);
     // res.sendFile(path.join(rootpath, "views", "welcome.html"));
-    res.render("welcome", { registerHomes });
+    res.render("index", { registerHomes });
 });
 module.exports = userRouter;

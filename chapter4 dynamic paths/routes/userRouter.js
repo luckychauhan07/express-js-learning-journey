@@ -10,6 +10,8 @@ module.exports = userRouter;
 
 userRouter.get("/bookings", storeController.getBookings);
 
+userRouter.post("/favourite", storeController.postFavouriteList);
+
 userRouter.get("/favourite", storeController.getFavouriteList);
 
 userRouter.get("/reserve", storeController.getReserve);

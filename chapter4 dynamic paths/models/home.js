@@ -11,12 +11,24 @@ module.exports = class Home {
         this.location = location;
         this.rating = rating;
         this.photoUrl = photoUrl;
-        this.id = Math.random().toString();
     }
     save() {
+        const homeDataPath = path.join(rootPath, "data", "homes.json");
         Home.fetchAll((registerHomes) => {
-            registerHomes.push(this);
-            const homeDataPath = path.join(rootPath, "data", "homes.json");
+            if (this.id) {
+                //this is for replace the existing object
+                registerHomes = registerHomes.map((home) => {
+                    if (home.id === this.id) {
+                        return this;
+                    }
+                    return home;
+                });
+            } else {
+                //this for adding new object
+                this.id = Math.random().toString();
+                registerHomes.push(this);
+            }
+
             fs.writeFile(homeDataPath, JSON.stringify(registerHomes), (err) => {
                 console.log("file write concluded", error);
             });
@@ -28,7 +40,7 @@ module.exports = class Home {
             if (!err) {
                 return callBack(JSON.parse(data));
             }
-            return callBack(registerHomes);
+            return callBack([]);
         });
     }
     static findHomeById(homeId, callBack) {

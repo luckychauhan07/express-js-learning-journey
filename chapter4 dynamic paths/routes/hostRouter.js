@@ -5,11 +5,13 @@ const hostController = require("../controls/hostController");
 const express = require("express");
 
 const hostRouter = express.Router();
-hostRouter.get("/contactUs", hostController.getAddHomes);
+hostRouter.get("/registerHome", hostController.getAddHomes);
 
-hostRouter.post("/contactUs", hostController.postAddHomes);
+hostRouter.post("/registerHome", hostController.postAddHomes);
 exports.hostRouter = hostRouter;
 
-hostRouter.get("/edit-home", hostController.getEditHomes);
+hostRouter.get("/edit-home/:id", hostController.getEditHomes);
 
 hostRouter.get("/host-home-list", hostController.getHostHomeList);
+
+hostRouter.post("/editHome", hostController.postEditHome);

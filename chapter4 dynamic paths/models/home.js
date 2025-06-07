@@ -4,6 +4,7 @@ const path = require("path");
 //LOCAL MODULES
 const rootPath = require("../utils/path");
 const { error } = require("console");
+const favourite = require("./handleFavourite");
 module.exports = class Home {
     constructor(houseName, price, location, rating, photoUrl, id) {
         this.houseName = houseName;
@@ -52,6 +53,16 @@ module.exports = class Home {
                     return callBack(eachHome);
                 }
             });
+        });
+    }
+    static deleteById(homeId, callBack) {
+        favourite.deleteFavouriteById(homeId, (err) => {
+            console.log("home is deleted from favourites list also");
+        });
+        const homeDataPath = path.join(rootPath, "data", "homes.json");
+        Home.fetchAll((allHomes) => {
+            const newHomesList = allHomes.filter((home) => home.id !== homeId);
+            fs.writeFile(homeDataPath, JSON.stringify(newHomesList), callBack);
         });
     }
 };

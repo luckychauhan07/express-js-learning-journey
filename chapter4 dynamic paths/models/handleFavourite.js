@@ -38,4 +38,22 @@ module.exports = class favourite {
             }
         });
     }
+    static deleteFavouriteById(homeID, callBack) {
+        favourite.getFavourites((favourites) => {
+            const newfavourites = favourites.filter(
+                (favour) => favour !== homeID
+            );
+            console.log(newfavourites);
+            const favouriteDataPath = path.join(
+                rootPath,
+                "data",
+                "favourite.json"
+            );
+            fs.writeFile(
+                favouriteDataPath,
+                JSON.stringify(newfavourites),
+                callBack
+            );
+        });
+    }
 };

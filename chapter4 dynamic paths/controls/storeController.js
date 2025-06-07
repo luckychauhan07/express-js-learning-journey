@@ -39,3 +39,12 @@ exports.getHomeDetails = (req, res, next) => {
         res.render("store/home-details", { home });
     });
 };
+
+exports.deleteFavouriteList = (req, res, next) => {
+    const homeID = req.params.homeId;
+    favourite.deleteFavouriteById(homeID, (err) => {
+        if (err) console.log("error while writting file");
+        else console.log("file write successfully");
+    });
+    res.redirect("/favourite");
+};

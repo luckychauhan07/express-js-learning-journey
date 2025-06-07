@@ -58,11 +58,18 @@
                             >
                                 Edit home
                             </a>
-                            <button
-                                class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-300"
-                            >
-                                Delete home
-                            </button>
+                            <form action="/host/host-home-list" method="post">
+                                <input
+                                    type="hidden"
+                                    name="homeId"
+                                    value="<%= home.id %>"
+                                />
+                                <button
+                                    class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-300"
+                                >
+                                    Delete home
+                                </button>
+                            </form>
                         </div>
                     </li>
 

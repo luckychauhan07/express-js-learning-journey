@@ -40,11 +40,16 @@
                         class="rounded-lg object-cover h-40 w-full"
                     />
                     <% } %>
-                    <button
-                        class="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-2 rounded-lg shadow-md transition duration-300"
+                    <form
+                        action="/favourites/delete/<%= home.id %>"
+                        method="post"
                     >
-                        Book
-                    </button>
+                        <button
+                            class="bg-red-400 hover:bg-red-500 text-white font-semibold py-2 px-2 rounded-lg shadow-md transition duration-300"
+                        >
+                            Remove from favourites
+                        </button>
+                    </form>
                 </li>
 
                 <% }) %>

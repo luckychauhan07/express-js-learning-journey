@@ -19,3 +19,8 @@ userRouter.get("/reserve", storeController.getReserve);
 userRouter.get("/home-list", storeController.getHomeList);
 
 userRouter.get("/home/:homeId", storeController.getHomeDetails);
+
+userRouter.post(
+    "/favourites/delete/:homeId",
+    storeController.deleteFavouriteList
+);

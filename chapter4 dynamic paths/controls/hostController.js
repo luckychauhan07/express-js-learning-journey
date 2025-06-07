@@ -50,3 +50,12 @@ exports.postEditHome = (req, res, next) => {
     home.save();
     res.redirect("/host/host-home-list");
 };
+
+exports.postHostHomeList = (req, res, next) => {
+    const homeId = req.body.homeId;
+    console.log(homeId);
+    Home.deleteById(homeId, (err) => {
+        console.log("error occurred file not write");
+    });
+    res.redirect("/host/host-home-list");
+};

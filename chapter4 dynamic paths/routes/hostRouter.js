@@ -15,3 +15,5 @@ hostRouter.get("/edit-home/:id", hostController.getEditHomes);
 hostRouter.get("/host-home-list", hostController.getHostHomeList);
 
 hostRouter.post("/editHome", hostController.postEditHome);
+
+hostRouter.post("/host-home-list", hostController.postHostHomeList);

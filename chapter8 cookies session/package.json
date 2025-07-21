@@ -1,0 +1,27 @@
+{
+	"name": "assignment1-ejs",
+	"version": "1.0.0",
+	"main": "app.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "npx nodemon app.js  npx tailwindcss -i ./views/style.css -o ./public/output.css --watch"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"description": "",
+	"dependencies": {
+		"body-parser": "^1.20.3",
+		"connect-mongodb-session": "^3.1.1",
+		"ejs": "^3.1.10",
+		"express": "^5.1.0",
+		"express-session": "^1.18.2",
+		"mongodb": "^6.17.0",
+		"mongoose": "^8.16.4",
+		"mysql2": "^3.14.1",
+		"nodemon": "^3.1.10"
+	},
+	"devDependencies": {
+		"tailwindcss": "^4.1.11"
+	}
+}

@@ -1,0 +1,66 @@
+<header class="bg-white shadow-md sticky top-0 z-50">
+	<div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+		<!-- Logo -->
+		<a href="/" class="text-2xl font-extrabold text-red-600 tracking-wide">
+			Airbnb
+		</a>
+		<% if(isLoggedIn) { %>
+
+		<nav class="flex space-x-2 text-sm font-medium">
+			<a
+				href="/host/host-home-list"
+				class="<%= currentPage === 'Host homeList' ? 'bg-red-500 text-white px-4 py-2 rounded-full shadow-lg font-semibold transform scale-105 transition-all duration-300 ease-in-out' : 'text-gray-600 px-4 py-2 rounded-full transition-all duration-300 ease-in-out' %>"
+			>
+				Host homeList
+			</a>
+
+			<a
+				href="/home-list"
+				class="<%= currentPage === 'HomeList' ? 'bg-red-500 text-white px-4 py-2 rounded-full shadow-lg font-semibold transform scale-105 transition-all duration-300 ease-in-out' : 'text-gray-600 px-4 py-2 rounded-full transition-all duration-300 ease-in-out' %>"
+			>
+				HomeList
+			</a>
+
+			<a
+				href="/host/registerHome"
+				class="<%= currentPage === 'Register' ? 'bg-red-500 text-white px-4 py-2 rounded-full shadow-lg font-semibold transform scale-105 transition-all duration-300 ease-in-out' : 'text-gray-600 px-4 py-2 rounded-full transition-all duration-300 ease-in-out' %>"
+			>
+				Register
+			</a>
+
+			<a
+				href="/bookings"
+				class="<%= currentPage === 'Bookings' ? 'bg-red-500 text-white px-4 py-2 rounded-full shadow-lg font-semibold transform scale-105 transition-all duration-300 ease-in-out' : 'text-gray-600 px-4 py-2 rounded-full transition-all duration-300 ease-in-out' %>"
+			>
+				Bookings
+			</a>
+
+			<a
+				href="/favourite"
+				class="<%= currentPage === 'Favourites' ? 'bg-red-500 text-white px-4 py-2 rounded-full shadow-lg font-semibold transform scale-105 transition-all duration-300 ease-in-out' : 'text-gray-600 px-4 py-2 rounded-full transition-all duration-300 ease-in-out' %>"
+			>
+				Favourites
+			</a>
+
+			<% }%>
+			<!-- Navigation -->
+			<%if(isLoggedIn){%>
+			<form action="/logout" method="post">
+				<button
+					type="submit"
+					class="text-gray-600 px-4 py-2 rounded-full transition-all duration-300 ease-in-out hover:bg-red-100 hover:text-red-600 font-semibold"
+				>
+					Logout
+				</button>
+			</form>
+			<%}%> <% if(!isLoggedIn){%>
+			<a
+				href="/login"
+				class="<%= currentPage === 'Login' ? 'bg-red-500 text-white px-4 py-2 rounded-full shadow-lg font-semibold transform scale-105 transition-all duration-300 ease-in-out' : 'text-gray-600 px-4 py-2 rounded-full transition-all duration-300 ease-in-out' %>"
+			>
+				Login
+			</a>
+			<%}%>
+		</nav>
+	</div>
+</header>

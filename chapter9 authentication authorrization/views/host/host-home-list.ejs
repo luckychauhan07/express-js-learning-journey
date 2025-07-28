@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>host home list page</title>
+		<link rel="stylesheet" href="/output.css" />
+	</head>
+	<body>
+		<%- include('../partials/header')%>
+		<h1
+			class="text-3xl font-semibold text-gray-800 mx-auto p-8 text-center w-fit"
+		>
+			Welcome to the Host Home List Page
+		</h1>
+
+		<!-- Main Content -->
+		<main class="max-w-4xl mx-auto px-4 py-8">
+			<div class="mt-8">
+				<h3 class="text-2xl font-medium text-center mb-2">
+					Your registered homes are:
+				</h3>
+				<ul
+					class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-6"
+				>
+					<% registerHomes.forEach(home => { %>
+					<li class="bg-white rounded-xl shadow-md p-6 flex flex-col">
+						<h3 class="text-xl font-semibold mb-2 text-gray-800">
+							<%= home.houseName %>
+						</h3>
+
+						<p class="text-gray-600 mb-1">
+							<strong>Charge per night:</strong> $<%= home.price
+							%>
+						</p>
+						<p class="text-gray-600 mb-1">
+							<strong>Location:</strong> <%= home.location %>
+						</p>
+						<p class="text-gray-600 mb-3">
+							<strong>Rating:</strong> <%= home.rating %> ⭐
+						</p>
+
+						<% if (home.photoUrl) { %>
+						<img
+							src="<%= home.photoUrl %>"
+							alt="<%= home.housename %>"
+							class="rounded-lg object-cover h-40 w-full"
+						/>
+						<% } %>
+
+						<div class="flex space-x-4">
+							<a
+								href="/host/edit-home/<%= home._id %>?editing=true"
+								class="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 mt-4 rounded-lg shadow-md transition duration-300"
+							>
+								Edit home
+							</a>
+							<form action="/host/host-home-list" method="post">
+								<input
+									type="hidden"
+									name="homeId"
+									value="<%= home._id %>"
+								/>
+								<button
+									class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 mt-4 px-4 rounded-lg shadow-md transition duration-300"
+								>
+									Delete home
+								</button>
+							</form>
+						</div>
+					</li>
+
+					<% }) %>
+				</ul>
+			</div>
+		</main>
+
+		<!-- Footer -->
+		<%- include('../partials/footer')%>
+	</body>
+</html>

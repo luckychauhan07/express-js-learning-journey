@@ -1,0 +1,71 @@
+<header class="bg-white shadow-md sticky top-0 z-50">
+	<div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+		<!-- Logo -->
+		<a href="/" class="text-2xl font-extrabold text-red-600 tracking-wide">
+			Airbnb
+		</a>
+
+		<!-- Navigation -->
+		<nav class="flex flex-wrap items-center space-x-2 text-sm font-medium">
+			<% if (isLoggedIn ) { %> <%if(user && user.userType==='host'){%>
+
+			<a
+				href="/host/host-home-list"
+				class="<%= currentPage === 'Host homeList' ? 'bg-red-500 text-white px-4 py-2 rounded-full shadow-md font-semibold transform scale-105 transition duration-300' : 'text-gray-600 px-4 py-2 rounded-full hover:bg-red-100 hover:text-red-600 transition duration-300' %>"
+			>
+				Host homeList
+			</a>
+			<a
+				href="/host/registerHome"
+				class="<%= currentPage === 'Register' ? 'bg-red-500 text-white px-4 py-2 rounded-full shadow-md font-semibold transform scale-105 transition duration-300' : 'text-gray-600 px-4 py-2 rounded-full hover:bg-red-100 hover:text-red-600 transition duration-300' %>"
+			>
+				Register
+			</a>
+
+			<% }%> <%if(user && user.userType==='guest'){%>
+			<a
+				href="/home-list"
+				class="<%= currentPage === 'HomeList' ? 'bg-red-500 text-white px-4 py-2 rounded-full shadow-md font-semibold transform scale-105 transition duration-300' : 'text-gray-600 px-4 py-2 rounded-full hover:bg-red-100 hover:text-red-600 transition duration-300' %>"
+			>
+				HomeList
+			</a>
+
+			<a
+				href="/bookings"
+				class="<%= currentPage === 'Bookings' ? 'bg-red-500 text-white px-4 py-2 rounded-full shadow-md font-semibold transform scale-105 transition duration-300' : 'text-gray-600 px-4 py-2 rounded-full hover:bg-red-100 hover:text-red-600 transition duration-300' %>"
+			>
+				Bookings
+			</a>
+			<a
+				href="/favourite"
+				class="<%= currentPage === 'Favourites' ? 'bg-red-500 text-white px-4 py-2 rounded-full shadow-md font-semibold transform scale-105 transition duration-300' : 'text-gray-600 px-4 py-2 rounded-full hover:bg-red-100 hover:text-red-600 transition duration-300' %>"
+			>
+				Favourites
+			</a>
+
+			<% }%>
+			<form action="/logout" method="post">
+				<button
+					type="submit"
+					class="text-gray-600 px-4 py-2 rounded-full hover:bg-red-100 hover:text-red-600 font-semibold transition duration-300"
+				>
+					Logout
+				</button>
+			</form>
+			<% } else { %>
+			<a
+				href="/login"
+				class="<%= currentPage === 'Login' ? 'bg-red-500 text-white px-4 py-2 rounded-full shadow-md font-semibold transform scale-105 transition duration-300' : 'text-gray-600 px-4 py-2 rounded-full hover:bg-red-100 hover:text-red-600 transition duration-300' %>"
+			>
+				Login
+			</a>
+			<a
+				href="/signup"
+				class="<%= currentPage === 'Signup' ? 'bg-red-500 text-white px-4 py-2 rounded-full shadow-md font-semibold transform scale-105 transition duration-300' : 'text-gray-600 px-4 py-2 rounded-full hover:bg-red-100 hover:text-red-600 transition duration-300' %>"
+			>
+				Sign up
+			</a>
+			<% } %>
+		</nav>
+	</div>
+</header>
